@@ -34,15 +34,24 @@ jobs:
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
         
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: jiying-launcher-debug
+          path: app/build/outputs/apk/debug/*.apk
+          retention-days: 30
+        
       - name: Build release APK
         run: ./gradlew assembleRelease --no-daemon --stacktrace
+        continue-on-error: true
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           
-      - name: Upload artifacts
+      - name: Upload release APK
         uses: actions/upload-artifact@v4
+        if: success()
         with:
-          name: jiying-launcher-apk
-          path: app/build/outputs/apk/**/*.apk
+          name: jiying-launcher-release
+          path: app/build/outputs/apk/release/*.apk
           retention-days: 30
