@@ -92,14 +92,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appStoreBtn: LinearLayout
     private lateinit var carServiceBtn: LinearLayout
     private lateinit var backToLauncherBtn: LinearLayout
-    private lateinit var sofaManagerBtn: LinearLayout
-    private lateinit var baiduCarlifeBtn: LinearLayout
+    private var sofaManagerBtn: LinearLayout? = null
+    private var baiduCarlifeBtn: LinearLayout? = null
     private lateinit var addAppBtn: LinearLayout
     
     // 底部功能栏
     private lateinit var homeButton: ImageView
     private lateinit var navButton: ImageView
-    private lateinit var floatingMapBtn: ImageView
+    private var floatingMapBtn: ImageView? = null
     private lateinit var rotateButton: ImageView
     private lateinit var lockButton: ImageView
     private lateinit var compassButton: ImageView
@@ -317,8 +317,8 @@ class MainActivity : AppCompatActivity() {
         appStoreBtn.setOnClickListener { openAppStore() }
         carServiceBtn.setOnClickListener { openCarService() }
         backToLauncherBtn.setOnClickListener { backToSystemLauncher() }
-        sofaManagerBtn.setOnClickListener { openSofaManager() }
-        baiduCarlifeBtn.setOnClickListener { openBaiduCarlife() }
+        sofaManagerBtn?.setOnClickListener { openSofaManager() }
+        baiduCarlifeBtn?.setOnClickListener { openBaiduCarlife() }
         addAppBtn.setOnClickListener { showAddAppDialog() }
         
         // ========== 底部功能栏 ==========
