@@ -1,0 +1,3 @@
+sdk.dir=
+# 请将此文件重命名为 local.properties 并填写您的Android SDK路径
+# 例如: sdk.dir=/Users/xxx/Library/Android/sdk
