@@ -105,11 +105,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var compassButton: ImageView
     private lateinit var volumeButton: ImageView
     
-    // 控制中心
-    private lateinit var controlCenterLayout: View
-    private lateinit var brightnessSlider: SeekBar
-    private lateinit var nightModeSwitch: SwitchCompat
-    private lateinit var closeControlCenter: ImageButton
+    // 控制中心（横屏布局可能缺少）
+    private var controlCenterLayout: View? = null
+    private var brightnessSlider: SeekBar? = null
+    private var nightModeSwitch: SwitchCompat? = null
+    private var closeControlCenter: ImageButton? = null
     
     // 数据
     private val handler = Handler(Looper.getMainLooper())
@@ -269,24 +269,24 @@ class MainActivity : AppCompatActivity() {
         appStoreBtn = findViewById(R.id.app_store)
         carServiceBtn = findViewById(R.id.car_service)
         backToLauncherBtn = findViewById(R.id.back_to_launcher)
-        sofaManagerBtn = findViewById(R.id.sofa_manager)
-        baiduCarlifeBtn = findViewById(R.id.baidu_carlife)
+        sofaManagerBtn = findViewById<LinearLayout?>(R.id.sofa_manager)
+        baiduCarlifeBtn = findViewById<LinearLayout?>(R.id.baidu_carlife)
         addAppBtn = findViewById(R.id.add_app)
         
         // 底部功能栏
         homeButton = findViewById(R.id.home_button)
         navButton = findViewById(R.id.nav_button)
-        floatingMapBtn = findViewById(R.id.floating_map_btn)
+        floatingMapBtn = findViewById<ImageView?>(R.id.floating_map_btn)
         rotateButton = findViewById(R.id.rotate_button)
         lockButton = findViewById(R.id.lock_button)
         compassButton = findViewById(R.id.compass_button)
         volumeButton = findViewById(R.id.volume_button)
         
         // 控制中心
-        controlCenterLayout = findViewById(R.id.control_center_layout)
-        brightnessSlider = findViewById(R.id.brightness_slider)
-        nightModeSwitch = findViewById(R.id.night_mode_switch)
-        closeControlCenter = findViewById(R.id.close_control_center)
+        controlCenterLayout = findViewById<View?>(R.id.control_center_layout)
+        brightnessSlider = findViewById<SeekBar?>(R.id.brightness_slider)
+        nightModeSwitch = findViewById<SwitchCompat?>(R.id.night_mode_switch)
+        closeControlCenter = findViewById<ImageButton?>(R.id.close_control_center)
         
         setupClickListeners()
     }
