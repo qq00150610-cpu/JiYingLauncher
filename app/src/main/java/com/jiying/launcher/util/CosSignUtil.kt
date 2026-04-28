@@ -17,9 +17,9 @@ object CosSignUtil {
     private const val TAG = "CosSignUtil"
     
     // COS配置 - 从安全角度考虑，实际生产环境应该从服务器获取签名
-    // 密钥应从环境变量或服务器获取，此处使用占位符
-    private var SECRET_ID = BuildConfig.COS_SECRET_ID ?: ""
-    private var SECRET_KEY = BuildConfig.COS_SECRET_KEY ?: ""
+    // 密钥应从服务器获取，此处使用空占位符
+    private const val SECRET_ID = ""
+    private const val SECRET_KEY = ""
     private const val BUCKET = "jiying-appstore-1423945248"
     private const val REGION = "ap-beijing"
     private const val HOST = "$BUCKET.cos.$REGION.myqcloud.com"
