@@ -141,13 +141,13 @@ class MainActivity : AppCompatActivity() {
             LayoutModeManager.init(this)
             ThemeManager.init(this)
             
-            // 应用当前布局模式
-            applyLayoutMode()
-            
             ThemeManager.applyTheme()
             hideSystemUI()
             initViews()
             initControlCenter()
+            
+            // 应用当前布局模式（必须在initViews之后调用）
+            applyLayoutMode()
             startTimeUpdate()
             registerReceivers()
             loadWallpaper()
@@ -182,12 +182,12 @@ class MainActivity : AppCompatActivity() {
     private fun applyLayoutMode() {
         val config = LayoutModeManager.getCurrentLayoutConfig()
         
-        // 根据不同布局模式调整界面
+        // 根据不同布局模式调整界面（必须在initViews之后调用）
         when (config.mode) {
             ScreenAdapter.LayoutMode.MODE_MINIMAL -> {
                 // 极简模式：隐藏大部分卡片，只保留底部Dock
-                navCard?.visibility = View.GONE
-                musicCard?.visibility = View.GONE
+                if (::navCard.isInitialized) navCard.visibility = View.GONE
+                if (::musicCard.isInitialized) musicCard.visibility = View.GONE
             }
             ScreenAdapter.LayoutMode.MODE_MAP_FOCUS -> {
                 // 地图优先：放大地图卡片
