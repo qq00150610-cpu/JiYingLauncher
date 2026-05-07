@@ -1,17 +1,6 @@
----
-AIGC:
-    ContentProducer: Minimax Agent AI
-    ContentPropagator: Minimax Agent AI
-    Label: AIGC
-    ProduceID: "00000000000000000000000000000000"
-    PropagateID: "00000000000000000000000000000000"
-    ReservedCode1: 304402201dac8412e5f311cebaace980f5cf7a37cfc377f05a6a06c45a667a31161fb31b02205f7422eac108c0d08bb8f73772d477fe612b01e9036fa223c21d8bd8c0c346b8
-    ReservedCode2: 304502206c2752a113a3bee128ea94c63df494566e45b322c4f9d353e695a2186b309b9c022100b9a2a63dd37f67ec08092067ce95eb491ec98df7887c9a30929cd2d9200ef70f
----
+
 
 # 极影桌面 jiying
-
-极影桌面是一款融合布丁UI与氢桌面优势的车载智能桌面应用，支持Android 6.0+系统。
 
 ## 功能特点
 
